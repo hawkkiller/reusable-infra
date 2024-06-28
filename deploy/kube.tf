@@ -469,7 +469,7 @@ module "kube-hetzner" {
   # we allow you to add a traefik_values, nginx_values or haproxy_values, see towards the end of this file in the advanced section.
   # After the cluster is deployed, you can always use HelmChartConfig definition to tweak the configuration.
   # If you want to disable both controllers set this to "none"
-  # ingress_controller = "nginx"
+  ingress_controller = "none"
   # Namespace in which to deploy the ingress controllers. Defaults to the ingress_controller variable, eg (haproxy, nginx, traefik)
   # ingress_target_namespace = ""
 
