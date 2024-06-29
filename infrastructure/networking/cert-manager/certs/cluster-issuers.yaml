@@ -7,7 +7,6 @@ spec:
   acme:
     # Replace the email address with your own contact email
     email: miskadl09@gmail.com
-    # The server is replaced in /clusters/staging/infrastructure.yaml
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-nginx
