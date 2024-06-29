@@ -25,15 +25,15 @@ metadata:
   name: cert-manager-certs
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: cert-manager
-      namespace: flux-system
   path: ./infrastructure/networking/cert-manager/certs
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
+  dependsOn:
+    - name: cert-manager
+      namespace: flux-system
   wait: true
   interval: 15m
   retryInterval: 1m
