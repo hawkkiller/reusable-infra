@@ -58,6 +58,14 @@ spec:
       target:
         kind: ClusterIssuer
         name: letsencrypt
+    - patch: |
+        - op: replace
+          path: /spec/dnsNames
+          value:
+            - "shoplist.staging.lazebny.io"
+      target:
+        kind: Certificate
+        name: shoplist-lazebny-io-tls
     - patch: |-
         apiVersion: kustomize.toolkit.fluxcd.io/v1
         kind: Kustomization

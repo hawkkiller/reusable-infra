@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - cloudflare-api-token.sops.yaml
   - cluster-issuers.yaml
+  - certificate.yaml
