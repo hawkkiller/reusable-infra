@@ -1,37 +1,3 @@
-# Terraform
-.terraform/
-*.tfstate
-*.tfstate.*
-terraform.tfvars
-
-# Sensitive Data
-*.pem
-*.key
-
-# Local Environment Files
-.env
-secrets.env
-
-# Temporary Files
-*.log
-*.tmp
-
-# IDE Directories and Files
-.vscode/
-.idea/
-.DS_Store
-
-# Node Modules (if using JS/TS in the repo)
-node_modules/
-
-# Python Virtual Environment (if using Python in the repo)
-venv/
-__pycache__/
-exclude/
-
-# Kubernetes Config
-kubeconfig.yaml
-k3s_kubeconfig.yaml
 *
 !kube.tf
 !hcloud-microos-snapshots.pkr.hcl
