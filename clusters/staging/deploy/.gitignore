@@ -32,3 +32,6 @@ exclude/
 # Kubernetes Config
 kubeconfig.yaml
 k3s_kubeconfig.yaml
+*
+!kube.tf
+!hcloud-microos-snapshots.pkr.hcl
