@@ -5,5 +5,5 @@ metadata:
   name: networking
 resources:
   - namespace.yaml
-  - cert-manager.yaml
-  - ingress-nginx.yaml
+  - cert-manager
+  - ingress-nginx

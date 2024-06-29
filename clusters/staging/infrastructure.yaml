@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: infra-controllers
+  name: infra
   namespace: flux-system
 spec:
   interval: 1h
@@ -11,44 +11,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/controllers
-  prune: true
-  wait: true
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
-  patches:
-    - patch: |-
-        apiVersion: kustomize.toolkit.fluxcd.io/v1
-        kind: Kustomization
-        metadata:
-          name: not-used
-        spec:
-          decryption:
-            provider: sops
-            secretRef:
-              name: sops-age
-      target:
-        group: kustomize.toolkit.fluxcd.io
-        kind: Kustomization
-        labelSelector: substitution.flux.home.arpa/disabled notin (true)
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: infra-configs
-  namespace: flux-system
-spec:
-  dependsOn:
-    - name: infra-controllers
-  interval: 1h
-  retryInterval: 1m
-  timeout: 5m
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  path: ./infrastructure/configs
+  path: ./infrastructure
   prune: true
   patches:
     - patch: |
