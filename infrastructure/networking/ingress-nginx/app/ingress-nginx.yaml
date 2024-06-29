@@ -24,10 +24,10 @@ spec:
         namespace: networking
       interval: 12h
   values:
+    admissionWebhooks:
+      enabled: false
     controller:
       service:
         type: "LoadBalancer"
-    admissionWebhooks:
-      enabled: false
-    extraArgs:
-      default-ssl-certificate: "networking/shoplist-lazebny-io-tls"
+      extraArgs:
+        default-ssl-certificate: "networking/shoplist-lazebny-io-tls"
