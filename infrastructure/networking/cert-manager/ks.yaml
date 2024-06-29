@@ -4,7 +4,7 @@ metadata:
   name: cert-manager
   namespace: networking
 spec:
-  path: ./app
+  path: ./infrastructure/networking/cert-manager/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -27,7 +27,8 @@ metadata:
 spec:
   dependsOn:
     - name: cert-manager
-  path: ./certs
+      namespace: networking
+  path: ./infrastructure/networking/cert-manager/certs
   prune: true
   sourceRef:
     kind: GitRepository
