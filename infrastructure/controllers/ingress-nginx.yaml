@@ -37,6 +37,5 @@ spec:
         type: "LoadBalancer"
     admissionWebhooks:
       enabled: false
-    # should be tweaked for staging by kustomization
     default-ssl-certificate:
       secretName: shoplist-lazebny-io-tls

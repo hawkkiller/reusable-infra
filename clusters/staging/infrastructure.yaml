@@ -64,6 +64,9 @@ spec:
           value:
             - "shoplist.staging.lazebny.io"
             - "shoplist.staging.podinfo.lazebny.io"
+        - op: replace
+          path: /spec/commonName
+          value: "shoplist.staging.lazebny.io"
       target:
         kind: Certificate
         name: shoplist-lazebny-io-tls
