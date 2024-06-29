@@ -29,5 +29,5 @@ spec:
         type: "LoadBalancer"
     admissionWebhooks:
       enabled: false
-    default-ssl-certificate:
-      secretName: shoplist-lazebny-io-tls
+    extraArgs:
+      default-ssl-certificate: "networking/shoplist-lazebny-io-tls"
