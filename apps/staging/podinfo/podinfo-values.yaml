@@ -16,3 +16,10 @@ spec:
           paths:
             - path: /(.*)
               pathType: Prefix
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-issuer
+      tls:
+        secretName: tls-secret
+        hosts:
+          - shoplist.staging.podinfo.lazebny.io
+          - shoplist.staging.lazebny.io

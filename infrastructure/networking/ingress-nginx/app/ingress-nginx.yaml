@@ -29,5 +29,3 @@ spec:
     controller:
       service:
         type: "LoadBalancer"
-      extraArgs:
-        default-ssl-certificate: "networking/shoplist-lazebny-io-tls"
