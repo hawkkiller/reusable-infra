@@ -23,9 +23,9 @@ spec:
         name: cert-manager
         namespace: networking
       interval: 12h
-      install:
-        disableWait: true
-      upgrade:
-        disableWait: true
+    install:
+      disableWait: true
+    upgrade:
+      disableWait: true
   values:
     installCRDs: true
