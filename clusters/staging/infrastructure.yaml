@@ -14,18 +14,6 @@ spec:
   path: ./infrastructure
   prune: true
   patches:
-    - patch: |
-        - op: replace
-          path: /spec/dnsNames
-          value:
-            - "shoplist.staging.lazebny.io"
-            - "shoplist.staging.podinfo.lazebny.io"
-        - op: replace
-          path: /spec/commonName
-          value: "shoplist.staging.lazebny.io"
-      target:
-        kind: Certificate
-        name: shoplist-lazebny-io-tls
     - patch: |-
         apiVersion: kustomize.toolkit.fluxcd.io/v1
         kind: Kustomization
