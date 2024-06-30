@@ -20,7 +20,7 @@ spec:
           value: https://acme-v02.api.letsencrypt.org/directory
       target:
         kind: ClusterIssuer
-        name: letsencrypt
+        name: letsencrypt-issuer
     - patch: |
         - op: replace
           path: /spec/dnsNames
