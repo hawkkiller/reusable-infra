@@ -16,13 +16,6 @@ spec:
   patches:
     - patch: |
         - op: replace
-          path: /spec/acme/server
-          value: https://acme-v02.api.letsencrypt.org/directory
-      target:
-        kind: ClusterIssuer
-        name: letsencrypt-issuer
-    - patch: |
-        - op: replace
           path: /spec/dnsNames
           value:
             - "shoplist.staging.lazebny.io"

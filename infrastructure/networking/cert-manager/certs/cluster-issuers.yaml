@@ -7,7 +7,7 @@ spec:
   acme:
     # Replace the email address with your own contact email
     email: miskadl09@gmail.com
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-issuer-account-key
     solvers:
