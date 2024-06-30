@@ -28,3 +28,5 @@ spec:
       service:
         type: "LoadBalancer"
       replicaCount: 1
+      logging:
+        level: "trace"
