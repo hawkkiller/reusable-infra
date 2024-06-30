@@ -29,4 +29,7 @@ spec:
         type: "LoadBalancer"
       replicaCount: 1
       logging:
-        level: "trace"
+        level: "info"
+      traffic:
+        address: "stdout"
+        format: "raw"
