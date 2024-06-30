@@ -11,14 +11,15 @@ spec:
     enable: false
   values:
     ingress:
+      annotations:
+        haproxy.org/path-rewrite: /(.*) /$1
+        cert-manager.io/cluster-issuer: letsencrypt-issuer
       className: haproxy
       hosts:
         - host: shoplist.staging.podinfo.lazebny.io
           paths:
-            - path: /(.*)
-              pathType: Prefix
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-issuer
+            - path: /
+              pathType: ImplementationSpecific
       tls:
         - secretName: tls-secret
           hosts:
