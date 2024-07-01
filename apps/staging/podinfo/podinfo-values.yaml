@@ -12,7 +12,9 @@ spec:
   values:
     ingress:
       enabled: true
+      className: haproxy
       annotations:
+        haproxy.org/path-rewrite: /(.*) /$1
         cert-manager.io/cluster-issuer: letsencrypt-issuer
       hosts:
         - host: shoplist.staging.podinfo.lazebny.io
