@@ -5,4 +5,4 @@ metadata:
 resources:
   - namespace.yaml
   - cert-manager/ks.yaml
-  - traefik/ks.yaml
+  - haproxy/ks.yaml
