@@ -605,7 +605,7 @@ module "kube-hetzner" {
   # cilium_egress_gateway_enabled = true
 
   # Enables Hubble Observability to collect and visualize network traffic. Default: false
-  # cilium_hubble_enabled = true
+  cilium_hubble_enabled = true
 
   # Configures the list of Hubble metrics to collect.
   # cilium_hubble_metrics_enabled = [
@@ -619,7 +619,7 @@ module "kube-hetzner" {
 
   # If you want to disable the k3s kube-proxy, use this flag. The default is "false".
   # Ensure that your CNI is capable of handling all the functionalities typically covered by kube-proxy.
-  # disable_kube_proxy = true
+  disable_kube_proxy = true
 
   # If you want to disable the k3s default network policy controller, use this flag!
   # Both Calico and Cilium cni_plugin values override this value to true automatically, the default is "false".
@@ -758,7 +758,7 @@ module "kube-hetzner" {
   # Cilium, all Cilium helm values can be found at https://github.com/cilium/cilium/blob/master/install/kubernetes/cilium/values.yaml
   # Be careful when maintaining your own cilium_values, as the choice of available settings depends on the Cilium version used. See also the cilium_version setting to fix a specific version.
   # The following is an example, please note that the current indentation inside the EOT is important.
-  /*   cilium_values = <<EOT
+     cilium_values = <<EOT
 ipam:
   mode: kubernetes
 k8s:
@@ -766,6 +766,8 @@ k8s:
 kubeProxyReplacement: true
 routingMode: native
 ipv4NativeRoutingCIDR: "10.0.0.0/8"
+operator:
+  replicas: 1
 endpointRoutes:
   enabled: true
 loadBalancer:
@@ -776,7 +778,7 @@ encryption:
   enabled: true
   type: wireguard
 MTU: 1450
-  EOT */
+  EOT
 
   # Cert manager, all cert-manager helm values can be found at https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
   # The following is an example, please note that the current indentation inside the EOT is important.
