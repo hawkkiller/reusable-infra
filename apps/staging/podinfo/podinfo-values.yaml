@@ -14,15 +14,15 @@ spec:
       enabled: true
       className: haproxy
       annotations:
-        haproxy.org/path-rewrite: /(.*) /$1
+        haproxy.org/path-rewrite: /podinfo/(.*) /$1
         cert-manager.io/cluster-issuer: letsencrypt-issuer
       hosts:
-        - host: shoplist.staging.podinfo.lazebny.io
+        - host: shoplist.staging.lazebny.io/podinfo
           paths:
             - path: /
               pathType: ImplementationSpecific
       tls:
         - secretName: tls-secret
           hosts:
-            - shoplist.staging.*.lazebny.io
+            - *.shoplist.staging.lazebny.io
             - shoplist.staging.lazebny.io

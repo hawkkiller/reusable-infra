@@ -125,8 +125,8 @@ module "kube-hetzner" {
       location    = "fsn1",
       labels      = [],
       taints      = [],
-      count       = 1
-      longhorn_volume_size = 0,
+      count       = 1,
+      longhorn_volume_size = 0
       # swap_size   = "2G" # remember to add the suffix, examples: 512M, 1G
       # zram_size   = "2G" # remember to add the suffix, examples: 512M, 1G
       # kubelet_args = ["kube-reserved=cpu=250m,memory=1500Mi,ephemeral-storage=1Gi", "system-reserved=cpu=250m,memory=300Mi"]
@@ -590,22 +590,22 @@ module "kube-hetzner" {
   # Also, see the cilium_values at towards the end of this file, in the advanced section.
   # ⚠️ Depending on your setup, sometimes you need your control-planes to have more than
   # 2GB of RAM if you are going to use Cilium, otherwise the pods will not start.
-  cni_plugin = "cilium"
+  # cni_plugin = "cilium"
 
   # You can choose the version of Cilium that you want. By default we keep the version up to date and configure Cilium with compatible settings according to the version.
   # cilium_version = "v1.14.0"
 
   # Set native-routing mode ("native") or tunneling mode ("tunnel"). Default: tunnel
-  cilium_routing_mode = "native"
+  # cilium_routing_mode = "native"
 
   # Used when Cilium is configured in native routing mode. The CNI assumes that the underlying network stack will forward packets to this destination without the need to apply SNAT. Default: value of "cluster_ipv4_cidr"
-  cilium_ipv4_native_routing_cidr = "10.0.0.0/8"
+  # cilium_ipv4_native_routing_cidr = "10.0.0.0/8"
 
   # Enables egress gateway to redirect and SNAT the traffic that leaves the cluster. Default: false
   # cilium_egress_gateway_enabled = true
 
   # Enables Hubble Observability to collect and visualize network traffic. Default: false
-  cilium_hubble_enabled = true
+  # cilium_hubble_enabled = true
 
   # Configures the list of Hubble metrics to collect.
   # cilium_hubble_metrics_enabled = [
@@ -619,7 +619,7 @@ module "kube-hetzner" {
 
   # If you want to disable the k3s kube-proxy, use this flag. The default is "false".
   # Ensure that your CNI is capable of handling all the functionalities typically covered by kube-proxy.
-  disable_kube_proxy = true
+  # disable_kube_proxy = true
 
   # If you want to disable the k3s default network policy controller, use this flag!
   # Both Calico and Cilium cni_plugin values override this value to true automatically, the default is "false".
@@ -758,27 +758,11 @@ module "kube-hetzner" {
   # Cilium, all Cilium helm values can be found at https://github.com/cilium/cilium/blob/master/install/kubernetes/cilium/values.yaml
   # Be careful when maintaining your own cilium_values, as the choice of available settings depends on the Cilium version used. See also the cilium_version setting to fix a specific version.
   # The following is an example, please note that the current indentation inside the EOT is important.
-  cilium_values = <<EOT
-ipam:
-  mode: kubernetes
-k8s:
-  requireIPv4PodCIDR: true
-kubeProxyReplacement: true
-routingMode: native
-ipv4NativeRoutingCIDR: "10.0.0.0/8"
-operator:
-  replicas: 1
-endpointRoutes:
-  enabled: true
-loadBalancer:
-  acceleration: native
-bpf:
-  masquerade: true
-encryption:
-  enabled: true
-  type: wireguard
-MTU: 1450
-  EOT
+#   cilium_values = <<EOT
+# kubeProxyReplacement: true
+# operator:
+#   replicas: 1
+#   EOT
 
   # Cert manager, all cert-manager helm values can be found at https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
   # The following is an example, please note that the current indentation inside the EOT is important.
