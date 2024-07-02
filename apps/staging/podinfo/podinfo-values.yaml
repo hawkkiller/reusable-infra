@@ -12,8 +12,6 @@ spec:
   values:
     ingress:
       enabled: true
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-issuer
       hosts:
       - host: shoplist.staging.lazebny.io
         paths:
