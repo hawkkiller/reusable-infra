@@ -6,6 +6,9 @@ metadata:
 spec:
   path: ./infrastructure/networking/cert-manager/app
   prune: true
+  interval: 15m
+  retryInterval: 1m
+  timeout: 10m
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -15,9 +18,6 @@ spec:
       kind: HelmRelease
       name: cert-manager
       namespace: networking
-  interval: 15m
-  retryInterval: 1m
-  timeout: 10m
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -27,6 +27,10 @@ metadata:
 spec:
   path: ./infrastructure/networking/cert-manager/certs
   prune: true
+  wait: true
+  interval: 15m
+  retryInterval: 1m
+  timeout: 10m
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -34,7 +38,7 @@ spec:
   dependsOn:
     - name: cert-manager
       namespace: flux-system
-  wait: true
-  interval: 15m
-  retryInterval: 1m
-  timeout: 10m
+  healthChecks:
+    - kind: Certificate
+      name: certificate-tls
+      namespace: networking

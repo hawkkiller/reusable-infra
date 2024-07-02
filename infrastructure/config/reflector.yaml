@@ -1,0 +1,24 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: reflector
+  namespace: config
+spec:
+  interval: 15m
+  url: https://emberstack.github.io/helm-charts
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: reflector
+  namespace: config
+spec:
+  chart:
+    spec:
+      chart: reflector
+      sourceRef:
+        kind: HelmRepository
+        name: reflector
+        namespace: config
+  interval: 15m
+  timeout: 5m
