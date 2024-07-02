@@ -23,4 +23,3 @@ spec:
         namespace: networking
       interval: 12h
   values:
-    

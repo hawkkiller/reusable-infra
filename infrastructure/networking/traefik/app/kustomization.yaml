@@ -4,4 +4,4 @@ metadata:
   name: traefik
 namespace: networking
 resources:
-  - release.yaml
+- release.yaml
