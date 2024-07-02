@@ -475,7 +475,7 @@ module "kube-hetzner" {
 
   # The default is "true" (in HA setup it works wonderfully well, with automatic roll-back to the previous snapshot in case of an issue).
   # IMPORTANT! For non-HA clusters i.e. when the number of control-plane nodes is < 3, you have to turn it off.
-  # automatically_upgrade_os = false
+  automatically_upgrade_os = false
 
   # If you need more control over kured and the reboot behaviour, you can pass additional options to kured.
   # For example limiting reboots to certain timeframes. For all options see: https://kured.dev/docs/configuration/
@@ -590,7 +590,7 @@ module "kube-hetzner" {
   # Also, see the cilium_values at towards the end of this file, in the advanced section.
   # ⚠️ Depending on your setup, sometimes you need your control-planes to have more than
   # 2GB of RAM if you are going to use Cilium, otherwise the pods will not start.
-  # cni_plugin = "cilium"
+  cni_plugin = "cilium"
 
   # You can choose the version of Cilium that you want. By default we keep the version up to date and configure Cilium with compatible settings according to the version.
   # cilium_version = "v1.14.0"
@@ -619,7 +619,7 @@ module "kube-hetzner" {
 
   # If you want to disable the k3s kube-proxy, use this flag. The default is "false".
   # Ensure that your CNI is capable of handling all the functionalities typically covered by kube-proxy.
-  # disable_kube_proxy = true
+  disable_kube_proxy = true
 
   # If you want to disable the k3s default network policy controller, use this flag!
   # Both Calico and Cilium cni_plugin values override this value to true automatically, the default is "false".
@@ -742,7 +742,7 @@ module "kube-hetzner" {
   # Export the values.yaml files used for the deployment of traefik, longhorn, cert-manager, etc.
   # This can be helpful to use them for later deployments like with ArgoCD.
   # The default is false.
-  # export_values = true
+  export_values = true
 
   # MicroOS snapshot IDs to be used. Per default empty, the most recent image created using createkh will be used.
   # We recommend the default, but if you want to use specific IDs you can.
@@ -760,8 +760,20 @@ module "kube-hetzner" {
   # The following is an example, please note that the current indentation inside the EOT is important.
 #   cilium_values = <<EOT
 # kubeProxyReplacement: true
+# routingMode: native
+# ipv4NativeRoutingCIDR: "10.0.0.0/8"
 # operator:
 #   replicas: 1
+# endpointRoutes:
+#   enabled: true
+# loadBalancer:
+#   acceleration: best-effort
+# bpf:
+#   masquerade: true
+# encryption:
+#   enabled: true
+#   type: wireguard
+# MTU: 1450
 #   EOT
 
   # Cert manager, all cert-manager helm values can be found at https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
