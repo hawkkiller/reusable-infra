@@ -20,5 +20,5 @@ spec:
       tls:
       - secretName: certificate-tls
         hosts:
-        - "*.shoplist.staging.lazebny.io"
+        - "podinfo.shoplist.staging.lazebny.io"
         - "shoplist.staging.lazebny.io"
