@@ -6,5 +6,5 @@ namespace: networking
 resources:
 - cloudflare-api-token.sops.yaml
 - cert-manager.yaml
-- cluster-issues.yaml
+- cluster-issuers.yaml
 - certificate.yaml
