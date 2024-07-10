@@ -4,7 +4,7 @@ metadata:
   name: podinfo
   namespace: podinfo
 spec:
-  chart:
+  chart: 
     spec:
       version: ">=1.0.0-alpha"
   test:
