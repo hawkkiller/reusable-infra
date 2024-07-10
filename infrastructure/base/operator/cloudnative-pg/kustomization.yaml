@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: cloudnative-pg
 resources:
 - "namespace.yaml"
+- "release.yaml"
