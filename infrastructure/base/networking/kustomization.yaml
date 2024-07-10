@@ -4,5 +4,5 @@ metadata:
   name: networking
 resources:
 - namespace.yaml
-- cert-manager/ks.yaml
-- traefik/ks.yaml
+- cert-manager
+- traefik

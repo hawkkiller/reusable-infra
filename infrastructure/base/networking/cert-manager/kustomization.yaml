@@ -4,4 +4,7 @@ metadata:
   name: cert-manager
 namespace: networking
 resources:
-  - cert-manager.yaml
+- cloudflare-api-token.sops.yaml
+- cert-manager.yaml
+- cluster-issues.yaml
+- certificate.yaml
