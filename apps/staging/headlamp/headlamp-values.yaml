@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: headlamp
+  namespace: headlamp
+spec:
+  chart:
+    spec:
+      version: ">=1.0.0-alpha"
+  values:
+    ingress:
+      enabled: true
+      hosts:
+      - host: headlamp.shoplist.staging.lazebny.io
+        paths:
+        - path: /
+          pathType: ImplementationSpecific
+      tls:
+      - secretName: certificate-tls
+        hosts:
+        - "*.shoplist.staging.lazebny.io"
