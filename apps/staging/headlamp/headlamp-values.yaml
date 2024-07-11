@@ -4,9 +4,6 @@ metadata:
   name: headlamp
   namespace: headlamp
 spec:
-  chart:
-    spec:
-      version: ">=1.0.0-alpha"
   values:
     ingress:
       enabled: true
