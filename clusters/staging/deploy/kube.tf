@@ -758,23 +758,35 @@ module "kube-hetzner" {
   # Cilium, all Cilium helm values can be found at https://github.com/cilium/cilium/blob/master/install/kubernetes/cilium/values.yaml
   # Be careful when maintaining your own cilium_values, as the choice of available settings depends on the Cilium version used. See also the cilium_version setting to fix a specific version.
   # The following is an example, please note that the current indentation inside the EOT is important.
-#   cilium_values = <<EOT
-# kubeProxyReplacement: true
-# routingMode: native
-# ipv4NativeRoutingCIDR: "10.0.0.0/8"
-# operator:
-#   replicas: 1
-# endpointRoutes:
-#   enabled: true
-# loadBalancer:
-#   acceleration: best-effort
-# bpf:
-#   masquerade: true
-# encryption:
-#   enabled: true
-#   type: wireguard
-# MTU: 1450
-#   EOT
+      cilium_values = <<EOT
+# Enable Kubernetes host-scope IPAM mode (required for K3s + Hetzner CCM)
+ipam:
+  mode: kubernetes
+k8s:
+ requireIPv4PodCIDR: true
+# Replace kube-proxy with Cilium
+kubeProxyReplacement: true
+# Enable health check server (healthz) for the kube-proxy replacement
+kubeProxyReplacementHealthzBindAddr: "0.0.0.0:10256"
+# Access to Kube API Server (mandatory if kube-proxy is disabled)
+k8sServiceHost: "127.0.0.1"
+k8sServicePort: "6444"
+# Set Tunnel Mode or Native Routing Mode (supported by Hetzner CCM Route Controller)
+routingMode: "native"
+endpointRoutes:
+  # Enable use of per endpoint routes instead of routing via the cilium_host interface.
+  enabled: true
+loadBalancer:
+  # Enable LoadBalancer & NodePort XDP Acceleration (direct routing (routingMode=native) is recommended to achieve optimal performance)
+  acceleration: native
+bpf:
+  # Enable eBPF-based Masquerading ("The eBPF-based implementation is the most efficient implementation")
+  masquerade: true
+operator:
+  replicas: 1
+MTU: 1450
+
+  EOT
 
   # Cert manager, all cert-manager helm values can be found at https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
   # The following is an example, please note that the current indentation inside the EOT is important.
@@ -818,15 +830,21 @@ controller:
 
   # Longhorn, all Longhorn helm values can be found at https://github.com/longhorn/longhorn/blob/master/chart/values.yaml
   # The following is an example, please note that the current indentation inside the EOT is important.
-  #      longhorn_values = <<EOT
-  # defaultSettings:
-  #   defaultDataPath: /var/lib/longhorn
-  #   node-down-pod-deletion-policy: delete-both-statefulset-and-deployment-pod
-  # persistence:
-  #   defaultClass: true
-  #   defaultFsType: ext4
-  #   defaultClassReplicaCount: 1
-  #   EOT
+       longhorn_values = <<EOT
+defaultSettings:
+  defaultDataPath: /var/lib/longhorn
+  node-down-pod-deletion-policy: delete-both-statefulset-and-deployment-pod
+  defaultReplicaCount: 1
+persistence:
+  defaultClass: true
+  defaultClassReplicaCount: 1
+  defaultFsType: ext4
+csi:
+  attacherReplicaCount: 1
+  provisionerReplicaCount: 1
+  resizerReplicaCount: 1
+  snapshotterReplicaCount: 1
+  EOT
 
   # If you want to use a specific Traefik helm chart version, set it below; otherwise, leave them as-is for the latest versions.
   # traefik_version = ""
