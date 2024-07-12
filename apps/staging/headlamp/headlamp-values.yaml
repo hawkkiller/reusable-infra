@@ -11,7 +11,7 @@ spec:
       - host: headlamp.shoplist.staging.lazebny.io
         paths:
         - path: /
-          pathType: ImplementationSpecific
+          type: ImplementationSpecific
       tls:
       - secretName: certificate-tls
         hosts:
