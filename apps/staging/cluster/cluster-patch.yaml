@@ -29,5 +29,5 @@ spec:
           name: s3-creds
           key: ACCESS_KEY_ID
         secretAccessKey:
-          key: s3-creds
-          name: ACCESS_SECRET_KEY
+          name: s3-creds
+          key: ACCESS_SECRET_KEY
