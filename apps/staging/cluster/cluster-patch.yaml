@@ -20,6 +20,7 @@ spec:
   bootstrap:
     initdb:
       database: shoplist
+      owner: shoplist
       secret:
         name: cluster-secret
 
