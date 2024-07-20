@@ -8,24 +8,26 @@ spec:
     recovery:
       source: clusterBackup
 
-  backup:
-    retentionPolicy: 7d
-    barmanObjectStore:
-      destinationPath: "s3://shoplist-staging-backups"
-      endpointURL: "https://d2e1470eded3cd2e7a93cc3f69f34558.r2.cloudflarestorage.com"
-      s3Credentials:
-        accessKeyId:
-          name: s3-creds
-          key: ACCESS_KEY_ID
-        secretAccessKey:
-          key: s3-creds
-          name: SECRET_ACCESS_KEY
+  # backup:
+  #   retentionPolicy: 7d
+  #   barmanObjectStore:
+  #     destinationPath: "s3://shoplist-staging-backups/test-cluster"
+  #     endpointURL: "https://d2e1470eded3cd2e7a93cc3f69f34558.r2.cloudflarestorage.com"
+  #     s3Credentials:
+  #       accessKeyId:
+  #         name: s3-creds
+  #         key: ACCESS_KEY_ID
+  #       secretAccessKey:
+  #         key: s3-creds
+  #         name: SECRET_ACCESS_KEY
 
   externalClusters:
   - name: clusterBackup
     barmanObjectStore:
-      destinationPath: "s3://shoplist-staging-backups"
+      destinationPath: "s3://shoplist-staging-backups/test-cluster"
       endpointURL: "https://d2e1470eded3cd2e7a93cc3f69f34558.r2.cloudflarestorage.com"
+      wal:
+        maxParallel: 8
       s3Credentials:
         accessKeyId:
           name: s3-creds
@@ -33,5 +35,3 @@ spec:
         secretAccessKey:
           key: s3-creds
           name: SECRET_ACCESS_KEY
-      wal:
-        maxParallel: 8
