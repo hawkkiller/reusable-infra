@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
 - ../../base/cluster
 - s3-creds-secret.yaml
-- cluster-secret.yaml
 patches:
 - path: cluster-patch.yaml
   target:

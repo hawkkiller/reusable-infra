@@ -17,13 +17,6 @@ spec:
           key: s3-creds
           name: SECRET_ACCESS_KEY
 
-  bootstrap:
-    initdb:
-      database: shoplist
-      owner: shoplist
-      secret:
-        name: cluster-secret
-
   externalClusters:
   - name: clusterBackup
     barmanObjectStore:
