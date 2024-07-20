@@ -2,3 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../../base/cluster
+- s3-creds-secret.yaml
+patches:
+- path: cluster-patch.yaml
+  target:
+    kind: Cluster

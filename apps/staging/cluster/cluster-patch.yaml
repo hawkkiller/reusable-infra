@@ -1,0 +1,41 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: test-cluster
+spec:
+  instances: 1
+  bootstrap:
+    recovery:
+      source: clusterBackup
+
+  backup:
+    retentionPolicy: 7d
+    barmanObjectStore:
+      destinationPath: "s3://shoplist-staging-backups"
+      endpointURL: "https://d2e1470eded3cd2e7a93cc3f69f34558.r2.cloudflarestorage.com"
+      s3Credentials:
+        accessKeyId:
+          name: s3-creds
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          key: s3-creds
+          name: SECRET_ACCESS_KEY
+
+  externalClusters:
+  - name: clusterBackup
+    namespace: cluster
+    clusterName: backup-cluster
+    backup:
+      retentionPolicy: 7d
+      barmanObjectStore:
+        destinationPath: "s3://shoplist-staging-backups"
+        endpointURL: "https://d2e1470eded3cd2e7a93cc3f69f34558.r2.cloudflarestorage.com"
+        s3Credentials:
+          accessKeyId:
+            name: s3-creds
+            key: ACCESS_KEY_ID
+          secretAccessKey:
+            key: s3-creds
+            name: SECRET_ACCESS_KEY
+        wal:
+          maxParallel: 8
