@@ -17,9 +17,11 @@ spec:
           key: s3-creds
           name: SECRET_ACCESS_KEY
 
-  # bootstrap:
-  #   recovery:
-  #     source: clusterBackup
+  bootstrap:
+    initdb:
+      database: shoplist
+      secret:
+        name: cluster-secret
 
   externalClusters:
   - name: clusterBackup
