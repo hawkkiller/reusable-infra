@@ -17,17 +17,23 @@ spec:
           name: s3-creds
           key: ACCESS_SECRET_KEY
 
+  bootstrap:
+    recovery:
+      database: app
+      owner: app
+      source: clusterBackup
+
   externalClusters:
-  - name: clusterBackup
-    barmanObjectStore:
-      destinationPath: "s3://shoplist-staging-backups"
-      endpointURL: "https://d2e1470eded3cd2e7a93cc3f69f34558.r2.cloudflarestorage.com"
-      wal:
-        maxParallel: 8
-      s3Credentials:
-        accessKeyId:
-          name: s3-creds
-          key: ACCESS_KEY_ID
-        secretAccessKey:
-          name: s3-creds
-          key: ACCESS_SECRET_KEY
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: "s3://shoplist-staging-backups"
+        endpointURL: "https://d2e1470eded3cd2e7a93cc3f69f34558.r2.cloudflarestorage.com"
+        wal:
+          maxParallel: 8
+        s3Credentials:
+          accessKeyId:
+            name: s3-creds
+            key: ACCESS_KEY_ID
+          secretAccessKey:
+            name: s3-creds
+            key: ACCESS_SECRET_KEY
