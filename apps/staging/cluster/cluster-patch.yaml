@@ -25,13 +25,13 @@ spec:
           key: ACCESS_SECRET_KEY
 
   # if it is needed to recover from a backup, uncomment the following lines
-  bootstrap:
-    recovery:
-      database: app
-      owner: app
-      source: &prev-cluster cluster-v2
-  externalClusters:
-    - name: *prev-cluster
-      barmanObjectStore:
-        <<: *barman
-        serverName: *prev-cluster
+  # bootstrap:
+  #   recovery:
+  #     database: app
+  #     owner: app
+  #     source: &prev-cluster cluster-v2
+  # externalClusters:
+  #   - name: *prev-cluster
+  #     barmanObjectStore:
+  #       <<: *barman
+  #       serverName: *prev-cluster
