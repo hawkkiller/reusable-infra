@@ -4,13 +4,6 @@ metadata:
   name: cluster
 spec:
   instances: 1
-  bootstrap:
-    # if it is needed to recover from a backup, uncomment the following lines
-    # and increase cluster version
-    # recovery:
-    #   database: app
-    #   owner: app
-    #   source: &prev-cluster cluster-v1
 
   backup:
     retentionPolicy: 7d
@@ -31,8 +24,14 @@ spec:
           name: *s3-secret
           key: ACCESS_SECRET_KEY
 
-  externalClusters:
-    - name: *prev-cluster
-      barmanObjectStore:
-        <<: *barman
-        serverName: *prev-cluster
+  # bootstrap:
+    # if it is needed to recover from a backup, uncomment the following lines
+    # recovery:
+    #   database: app
+    #   owner: app
+    #   source: &prev-cluster cluster-v1
+  # externalClusters:
+  #   - name: *prev-cluster
+  #     barmanObjectStore:
+  #       <<: *barman
+  #       serverName: *prev-cluster
