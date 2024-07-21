@@ -30,8 +30,8 @@ spec:
   #     database: app
   #     owner: app
   #     source: &prev-cluster cluster-v2
-  externalClusters:
-    - name: *prev-cluster
-      barmanObjectStore:
-        <<: *barman
-        serverName: *prev-cluster
+  # externalClusters:
+  #   - name: *prev-cluster
+  #     barmanObjectStore:
+  #       <<: *barman
+  #       serverName: *prev-cluster
