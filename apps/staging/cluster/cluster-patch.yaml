@@ -1,43 +1,38 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: test-cluster
+  name: cluster
 spec:
-  instances: 2
+  instances: 1
   bootstrap:
-    recovery:
-      database: app
-      owner: app
-      source: &prev-cluster test-cluster-recover
+    # if it is needed to recover from a backup, uncomment the following lines
+    # and increase cluster version
+    # recovery:
+    #   database: app
+    #   owner: app
+    #   source: &prev-cluster cluster-v1
 
   backup:
     retentionPolicy: 7d
-    barmanObjectStore:
-      destinationPath: &s3-bucket "s3://shoplist-staging-backups"
-      endpointURL: &s3-host "https://d2e1470eded3cd2e7a93cc3f69f34558.r2.cloudflarestorage.com"
+    barmanObjectStore: &barman
+      serverName: &current-cluster cluster-v1
+      destinationPath: "s3://shoplist-staging-backups"
+      endpointURL: "https://d2e1470eded3cd2e7a93cc3f69f34558.r2.cloudflarestorage.com"
+      data:
+        compression: bzip2
       wal:
-        compression: &compression bzip2
-        maxParallel: &parallel 8
+        compression: bzip2
+        maxParallel: 8
       s3Credentials:
         accessKeyId:
           name: &s3-secret s3-creds
-          key: &access-key ACCESS_KEY_ID
+          key: ACCESS_KEY_ID
         secretAccessKey:
           name: *s3-secret
-          key: &secret-key ACCESS_SECRET_KEY
+          key: ACCESS_SECRET_KEY
 
   externalClusters:
     - name: *prev-cluster
       barmanObjectStore:
-        destinationPath: *s3-bucket
-        endpointURL: *s3-host
-        wal:
-          compression: *compression
-          maxParallel: *parallel
-        s3Credentials:
-          accessKeyId:
-            name: *s3-secret
-            key: *access-key
-          secretAccessKey:
-            name: *s3-secret
-            key: *secret-key
+        <<: *barman
+        serverName: *prev-cluster
