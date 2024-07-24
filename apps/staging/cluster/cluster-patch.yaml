@@ -4,7 +4,6 @@ metadata:
   name: cluster
 spec:
   instances: 1
-
   superuserSecret:
     name: superuser-secret
 
@@ -37,7 +36,9 @@ spec:
   # bootstrap:
   #   recovery:
   #     database: app
-  #     owner: app
+  #     owner: shoplist
+  #     secret:
+  #       name: app-secret
   #     source: &prev-cluster cluster-v1
   # externalClusters:
   #   - name: *prev-cluster
