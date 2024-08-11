@@ -66,6 +66,9 @@ However, this configures barman to only save WALs. It is also needed to configur
 If you're bootstrapping cluster the first time, you should uncomment the initdb section.
 Otherwise, if you have a backup to recover from, you should uncomment the recovery section.
 
+Each time you recover from a backup, you should bump the cluster version. For example, you had clusterv1, and you recovered from a backup, the current cluster variable should be changed to clusterv2.
+This is needed to avoid conflicts with the barman object store.
+
 ```yaml
 apiVersion: postgresql.cnpg.io/v1
 kind: ScheduledBackup
