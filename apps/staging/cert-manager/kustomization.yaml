@@ -9,12 +9,8 @@ patches:
     target:
       kind: ClusterIssuer
       name: tls-issuer
-      namespace: cert-manager
-      group: cert-manager.io
 
   - path: certificate-patch.yaml
     target:
       kind: Certificate
       name: certificate-tls
-      namespace: cert-manager
-      group: cert-manager.io
