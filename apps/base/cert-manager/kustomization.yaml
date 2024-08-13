@@ -4,7 +4,6 @@ metadata:
   name: cert-manager
 namespace: cert-manager
 resources:
-- cloudflare-api-token.sops.yaml
 - cert-manager.yaml
 - cluster-issuers.yaml
 - certificate.yaml
