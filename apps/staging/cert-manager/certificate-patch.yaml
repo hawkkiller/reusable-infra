@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: certificate-tls
+spec:
+  secretName: certificate-tls
+  commonName: "shoplist.staging.lazebny.io"
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+  issuerRef:
+    name: tls-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
+  dnsNames:
+  - "shoplist.staging.lazebny.io"
+  - "*.shoplist.staging.lazebny.io"
