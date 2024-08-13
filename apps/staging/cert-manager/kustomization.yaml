@@ -5,12 +5,11 @@ resources:
   - ../../base/cert-manager
   - cloudflare-api-token.sops.yaml
 patches:
+  - path: certificate-patch.yaml
+    target:
+      kind: Certificate
+
   - path: cluster-issuer-patch.yaml
     target:
       kind: ClusterIssuer
       name: tls-issuer
-
-  - path: certificate-patch.yaml
-    target:
-      kind: Certificate
-      name: certificate-tls
