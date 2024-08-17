@@ -1,0 +1,23 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: certs
+  namespace: cert-manager
+spec:
+  interval: 5m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./apps/base/cert-manager/certs
+  dependsOn:
+    - name: cert-manager
+      namespace: cert-manager
+      kind: HelmRelease
+  prune: true
+  wait: true
+  timeout: 5m0s
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
