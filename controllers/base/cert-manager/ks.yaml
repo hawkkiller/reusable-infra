@@ -10,7 +10,7 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  path: ./apps/base/cert-manager/app
+  path: ./controllers/base/cert-manager/app
   prune: true
   wait: true
   timeout: 5m0s
@@ -26,7 +26,7 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  path: ./apps/base/cert-manager/certs
+  path: ./controllers/base/cert-manager/certs
   dependsOn:
     - name: cert-manager
       namespace: cert-manager
