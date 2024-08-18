@@ -14,7 +14,6 @@ spec:
   dependsOn:
     - name: cert-manager
       namespace: cert-manager
-      kind: HelmRelease
   prune: true
   wait: true
   timeout: 5m0s
