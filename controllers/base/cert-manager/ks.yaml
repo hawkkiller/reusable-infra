@@ -12,8 +12,6 @@ spec:
     namespace: flux-system
   path: ./controllers/base/cert-manager/app
   prune: true
-  wait: true
-  timeout: 5m0s
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -31,5 +29,3 @@ spec:
     - name: cert-manager
       namespace: cert-manager
   prune: true
-  wait: true
-  timeout: 5m0s
