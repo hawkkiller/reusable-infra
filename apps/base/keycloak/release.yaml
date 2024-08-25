@@ -24,3 +24,4 @@ spec:
         namespace: keycloak
       interval: 12h
   values:
+    replicaCount: 1
