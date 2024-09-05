@@ -22,7 +22,7 @@ spec:
         - op: add
           path: /metadata/namespace
           value: cert-manager
-        - op: replace
+        - op: add
           path: /spec/dnsNames
           value:
             - "shoplist.staging.lazebny.io"
@@ -34,16 +34,16 @@ spec:
         - op: add
           path: /metadata/namespace
           value: cert-manager
-        - op: replace
+        - op: add
           path: /spec/acme/email
           value: miskadl09@gmail.com
-        - op: replace
+        - op: add
           path: /spec/acme/server
           value: https://acme-v02.api.letsencrypt.org/directory
-        - op: replace
+        - op: add
           path: /spec/acme/privateKeySecretRef/name
           value: tls-issuer-account-key
-        - op: replace
+        - op: add
           path: /spec/acme/solvers
           value:
             - dns01:
