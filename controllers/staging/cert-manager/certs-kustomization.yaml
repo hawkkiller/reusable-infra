@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   prune: true
-  path: ../../base/cert-manager/certs
+  path: controllers/base/cert-manager/certs
   dependsOn:
     - name: cert-manager
       namespace: flux-system
