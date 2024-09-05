@@ -1,0 +1,21 @@
+---
+version: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cert-manager
+  namespace: flux-system
+spec:
+  path: ../../base/cert-manager/app
+  interval: 5m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  patches:
+    - patch: |
+        - op: replace
+          path: /metadata/namespace
+          value: cert-manager
+      target: 
+        kind: HelmRepository
+        name: cert-manager

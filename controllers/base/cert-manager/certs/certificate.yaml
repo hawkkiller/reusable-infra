@@ -1,22 +1,8 @@
 ---
 apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: tls-issuer
-  namespace: cert-manager
-spec:
-  acme:
-    # Replace the email address with your own contact email
-    email: miskadl09@gmail.com
-    server: https://acme-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: tls-issuer-account-key
----
-apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: certificate-tls
-  namespace: cert-manager
 spec:
   secretName: certificate-tls
   secretTemplate:

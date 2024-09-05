@@ -6,6 +6,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m0s
+  dependsOn:
+    - name: controllers
+      namespace: flux-system
   sourceRef:
     kind: GitRepository
     name: flux-system
