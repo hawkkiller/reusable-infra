@@ -19,3 +19,14 @@ spec:
       target: 
         kind: HelmRepository
         name: cert-manager
+    - patch: |
+        - op: replace
+          path: /metadata/namespace
+          value: cert-manager
+        - op: replace
+          path: /spec/chart/spec/sourceRef/namespace
+          value: cert-manager
+      target:
+        kind: HelmRelease
+        name: cert-manager
+      
