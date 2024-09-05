@@ -1,10 +1,11 @@
 ---
-version: kustomize.toolkit.fluxcd.io/v1
+apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: cert-manager-certs
   namespace: flux-system
 spec:
+  prune: true
   path: ../../base/cert-manager/certs
   dependsOn:
     - name: cert-manager
@@ -15,26 +16,28 @@ spec:
     name: flux-system
     namespace: flux-system
   patches:
-    - patch: |
-        - op: add
-          path: /metadata/namespace
-          value: cert-manager
-        - op: add
-          path: /spec/dnsNames
-          value:
-            - "shoplist.staging.lazebny.io"
-            - "*.shoplist.staging.lazebny.io"
-      target:
+    - target:
         kind: Certificate
         name: certificate-tls
-    - patch: |
-        - op: add
-          path: /metadata/namespace
-          value: cert-manager
-        - op: add
-          path: /spec/acme
-          value:
-            # Replace the email address with your own contact email
+      patch: |
+        apiVersion: cert-manager.io/v1
+        kind: Certificate
+        metadata:
+          namespace: cert-manager
+        spec:
+          dnsNames:
+            - "shoplist.staging.lazebny.io"
+            - "*.shoplist.staging.lazebny.io"
+    - target:
+        kind: ClusterIssuer
+        name: tls-issuer
+      patch: |
+        apiVersion: cert-manager.io/v1
+        kind: ClusterIssuer
+        metadata:
+          namespace: cert-manager
+        spec:
+          acme:
             email: miskadl09@gmail.com
             server: https://acme-v02.api.letsencrypt.org/directory
             privateKeySecretRef:
@@ -46,6 +49,3 @@ spec:
                     apiTokenSecretRef:
                       name: cloudflare-api-token
                       key: api-token
-      target:
-        kind: ClusterIssuer
-        name: tls-issuer
