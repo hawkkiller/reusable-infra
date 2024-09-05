@@ -13,17 +13,17 @@ spec:
     namespace: flux-system
   patches:
     - patch: |
-        - op: replace
+        - op: add
           path: /metadata/namespace
           value: cert-manager
       target: 
         kind: HelmRepository
         name: cert-manager
     - patch: |
-        - op: replace
+        - op: add
           path: /metadata/namespace
           value: cert-manager
-        - op: replace
+        - op: add
           path: /spec/chart/spec/sourceRef/namespace
           value: cert-manager
       target:
