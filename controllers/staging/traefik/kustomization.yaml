@@ -1,13 +1,4 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: traefik
-  namespace: flux-system
-spec:
-  path: controllers/base/traefik
-  prune: true
-  interval: 5m0s
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
+resources:
+  - traefik-kustomization.yaml
