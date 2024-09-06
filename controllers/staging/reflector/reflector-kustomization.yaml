@@ -1,10 +1,10 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: traefik
+  name: reflector
   namespace: flux-system
 spec:
-  path: controllers/base/traefik
+  path: controllers/base/reflector
   prune: true
   interval: 5m0s
   sourceRef:
