@@ -1,0 +1,32 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: podinfo
+  namespace: flux-system
+spec:
+  path: apps/base/podinfo
+  prune: true
+  interval: 5m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  patches:
+    - target:
+        kind: HelmRelease
+        name: podinfo
+      patch: |-
+        - op: replace
+          path: /spec/values
+          value:
+            ingress:
+              enabled: true
+              hosts:
+              - host: podinfo.shoplist.staging.lazebny.io
+                paths:
+                - path: /
+                  pathType: ImplementationSpecific
+              tls:
+              - secretName: certificate-tls
+                hosts:
+                - "*.shoplist.staging.lazebny.io"
