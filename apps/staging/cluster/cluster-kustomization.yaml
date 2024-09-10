@@ -17,6 +17,7 @@ spec:
         kind: Cluster
         metadata:
           name: cluster
+          namespace: cluster
         spec:
           instances: 1
           superuserSecret:
