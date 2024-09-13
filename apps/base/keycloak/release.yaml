@@ -1,0 +1,25 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: keycloak-operator
+  namespace: keycloak-operator
+spec:
+  interval: 24h
+  url: https://hawkkiller.github.io/keycloak-operator/
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: keycloak
+  namespace: keycloak
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: keycloak
+      sourceRef:
+        kind: HelmRepository
+        name: keycloak
+        namespace: keycloak-operator
+      interval: 12h
+  values:
