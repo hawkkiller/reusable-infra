@@ -17,6 +17,7 @@ spec:
   chart:
     spec:
       chart: keycloak-operator
+      version: 1.0.1
       sourceRef:
         kind: HelmRepository
         name: keycloak-operator
