@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: keycloak-operator
-  namespace: keycloak-operator
+  namespace: keycloak
 spec:
   interval: 24h
   url: https://hawkkiller.github.io/keycloak-operator/
@@ -20,6 +20,6 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: keycloak
-        namespace: keycloak-operator
+        namespace: keycloak
       interval: 12h
   values:
