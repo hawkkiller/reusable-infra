@@ -57,7 +57,7 @@ keycloak_postgres_directory="apps/$ENVIRONMENT/keycloak/postgres"
 kubectl create secret generic s3-credentials \
   --from-literal=access-key-id="$S3_ACCESS_KEY_ID" \
   --from-literal=secret-access-key="$S3_SECRET_ACCESS_KEY" \
-  -n your-namespace --dry-run=client -o yaml > "$keycloak_postgres_directory/s3-credentials.sops.yaml"
+  -n keycloak --dry-run=client -o yaml > "$keycloak_postgres_directory/s3-credentials.sops.yaml"
 
 # Encrypt the secret using sops
 sops -i -e "$keycloak_postgres_directory/s3-credentials.sops.yaml"
