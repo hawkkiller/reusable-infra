@@ -39,3 +39,5 @@ spec:
             host: keycloak-postgres-rw.keycloak.svc.cluster.local
           http:
             tlsSecret: certificate-tls
+          hostname: 
+            hostname: keycloak.staging.lazebny.io
