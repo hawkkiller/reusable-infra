@@ -11,10 +11,6 @@ spec:
       namespace: flux-system
   interval: 5m0s
   timeout: 10m0s
-  healthChecks:
-    - kind: Certificate
-      name: certificate-tls
-      namespace: cert-manager
   sourceRef:
     kind: GitRepository
     name: flux-system
