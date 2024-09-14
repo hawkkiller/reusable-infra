@@ -37,3 +37,5 @@ spec:
             database: app
             port: 5432
             host: keycloak-postgres-rw.keycloak.svc.cluster.local
+          http:
+            tlsSecret: certificate-tls

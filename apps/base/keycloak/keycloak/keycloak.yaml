@@ -5,3 +5,4 @@ metadata:
   namespace: keycloak
 spec:
   instances: 1
+  
