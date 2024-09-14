@@ -4,7 +4,7 @@ metadata:
   name: keycloak-operator
   namespace: flux-system
 spec:
-  path: apps/base/keycloak/operator
+  path: apps/base/keycloak/keycloak-operator
   prune: true
   interval: 5m0s
   sourceRef:

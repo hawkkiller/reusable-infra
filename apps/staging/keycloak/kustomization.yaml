@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - keycloak-operator/keycloak-operator-kustomization.yaml
-- postgres/postgres-cluster-kustomization
+- postgres
 - keycloak/keycloak-kustomization.yaml
