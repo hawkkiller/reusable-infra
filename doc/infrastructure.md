@@ -33,7 +33,7 @@ spec:
         maxParallel: 8
       s3Credentials:
         accessKeyId:
-          name: &s3-secret s3-creds
+          name: &s3-secret s3-credentials
           key: ACCESS_KEY_ID
         secretAccessKey:
           name: *s3-secret

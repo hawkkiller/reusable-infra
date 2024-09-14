@@ -29,10 +29,10 @@ spec:
           db:
             vendor: postgres
             passwordSecret:
-              name: app-secret
+              name: keycloak-postgres-user
               key: password
             usernameSecret:
-              name: app-secret
+              name: keycloak-postgres-user
               key: username
             database: app
             port: 5432
@@ -40,4 +40,4 @@ spec:
           http:
             tlsSecret: certificate-tls
           hostname: 
-            hostname: keycloak.staging.lazebny.io
+            hostname: keycloak.shoplist.staging.lazebny.io

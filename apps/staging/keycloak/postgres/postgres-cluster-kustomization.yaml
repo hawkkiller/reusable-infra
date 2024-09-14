@@ -21,7 +21,7 @@ spec:
         spec:
           instances: 1
           superuserSecret:
-            name: superuser-secret
+            name: keycloak-postgres-superuser
           backup:
             retentionPolicy: 7d
             barmanObjectStore: &barman
@@ -35,7 +35,7 @@ spec:
                 maxParallel: 8
               s3Credentials:
                 accessKeyId:
-                  name: &s3-secret s3-creds
+                  name: &s3-secret s3-credentials
                   key: ACCESS_KEY_ID
                 secretAccessKey:
                   name: *s3-secret
@@ -45,7 +45,7 @@ spec:
               database: app
               owner: shoplist
               secret:
-                name: app-secret
+                name: keycloak-postgres-user
           # bootstrap:
       target:
         kind: Cluster

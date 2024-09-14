@@ -1,0 +1,30 @@
+apiVersion: v1
+data:
+    password: ENC[AES256_GCM,data:Z27ddXm1JBFKrqP8,iv:OERIxd0xv1AEv1v2wBm39jK9bRiWV8rsSl1LLuRfjpE=,tag:ltOtjHWq/8L/lFxDw66ADw==,type:str]
+    username: ENC[AES256_GCM,data:a7kRo4F3/EEeKSJ1,iv:C/sLV8zCx6cAEETUZ5qxb0+1XM+K23TMMMBA+WvwNr0=,tag:sQk+0iD4Qvr/0eOibNmhSg==,type:str]
+kind: Secret
+metadata:
+    creationTimestamp: null
+    name: keycloak-postgres-user
+    namespace: keycloak
+type: kubernetes.io/basic-auth
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age138n2u0dgdzqplz32uthrwf0dhr3k7ugzu3slluw9jtuzdkvrzstsj0hx4v
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBtVkw3VTZXMkdqaUMzTTMv
+            VmhoQXVUb1J6cmRZdjhKeGVYQmpQdEJtSFVnCjFTamY3QnY2a25kNW55bUc2dWgz
+            TDVrcldkMWVzYzFJSk53NjJtWm5YS1UKLS0tIC9kc2hzUGpuNlRFQjdUbWVUVlFp
+            bzFhb2RJSFRoWUEwUE0vMnJCN1d0ZjgKfvziww46z1UMGZDuW1bogXMl9FBs8Rsj
+            8SJIRFlqDXIt6q8uv+MOI5sW8tP7f6plMC30xdOcbNV93sahsAP+VA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-14T12:48:12Z"
+    mac: ENC[AES256_GCM,data:3U4/3KIitAlD8sZ53xBrCRlq2TSbmTMK3mOJWsdIWmbBN8Esrp9DaxzE2Fdbt1cOCxSDBJuxs5M4HDyWtC0vQ5xXPKAOlHGvuB6AphGCB+o5f0Fj2n//L01hHjiOJLGUIhYY+Bo6UQUJuYjxDIUXXJ6p39Rz0EUoC6TxZrzGfzk=,iv:AOCFfUmje0qSa52N/6xGA7FwwDnOrFVbcRAfI5eeJwA=,tag:B1ezV9zAZc8cVWLPFkbyvg==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
