@@ -7,9 +7,7 @@ spec:
   path: apps/base/keycloak/keycloak
   dependsOn:
     - name: keycloak-operator
-      kind: Kustomization
     - name: keycloak-postgres
-      kind: Kustomization
   prune: true
   interval: 5m0s
   sourceRef:
