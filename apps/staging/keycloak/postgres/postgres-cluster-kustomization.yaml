@@ -43,7 +43,7 @@ spec:
           bootstrap:
             initdb:
               database: app
-              owner: shoplist
+              owner: keycloak
               secret:
                 name: keycloak-postgres-user
           # bootstrap:
@@ -52,7 +52,7 @@ spec:
         name: keycloak-postgres
 #   recovery:
 #     database: app
-#     owner: shoplist
+#     owner: keycloak
 #     secret:
 #       name: app-secret
 #     source: &prev-cluster cluster-v1
