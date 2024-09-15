@@ -21,6 +21,8 @@ spec:
           value:
             ingress:
               enabled: true
+              annotations:
+                nginx.ingress.kubernetes.io/auth-tls-secret: "podinfo/certificate-tls"
               hosts:
               - host: podinfo.shoplist.staging.lazebny.io
                 paths:
