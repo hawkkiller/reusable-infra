@@ -43,18 +43,6 @@ spec:
             tlsSecret: certificate-tls
           hostname:
             hostname: "https://keycloak.shoplist.staging.lazebny.io"
-            strict: false
-            strictBackchannel: false
-            # admin: "https://keycloak-admin.shoplist.staging.lazebny.io"
           additionalOptions:
             - name: LOG_LEVEL
               value: ALL
-            # - name: PROXY_HEADERS
-            #   value: xforwarded
-          unsupported:
-            podTemplate:
-              spec:
-                containers:
-                  - name: keycloak
-                    args:
-                      - start-dev
