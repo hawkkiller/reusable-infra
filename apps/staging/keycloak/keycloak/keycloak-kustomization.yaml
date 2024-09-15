@@ -39,8 +39,7 @@ spec:
             host: keycloak-postgres-rw.keycloak.svc.cluster.local
           http:
             tlsSecret: certificate-tls
-          hostname: 
+          hostname:
+            admin: keycloak-admin.shoplist.staging.lazebny.io
             hostname: keycloak.shoplist.staging.lazebny.io
-          ingress:
-            enabled: false
           
