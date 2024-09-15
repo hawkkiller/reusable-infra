@@ -44,3 +44,6 @@ spec:
           hostname:
             admin: "https://keycloak-admin.shoplist.staging.lazebny.io"
             hostname: "https://keycloak.shoplist.staging.lazebny.io"
+          additionalOptions:
+            - name: KC_LOG_LEVEL
+              value: ALL
