@@ -25,8 +25,7 @@ spec:
               - host: podinfo.shoplist.staging.lazebny.io
                 paths:
                 - path: /
-                  pathType: ImplementationSpecific
               tls:
               - secretName: certificate-tls
                 hosts:
-                - "*.shoplist.staging.lazebny.io"
+                - "podinfo.shoplist.staging.lazebny.io"
