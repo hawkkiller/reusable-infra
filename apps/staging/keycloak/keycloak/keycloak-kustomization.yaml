@@ -42,12 +42,12 @@ spec:
           http:
             tlsSecret: certificate-tls
           hostname:
-            admin: "https://keycloak-admin.shoplist.staging.lazebny.io"
-            hostname: "https://keycloak.shoplist.staging.lazebny.io"
+            admin: "keycloak-admin.shoplist.staging.lazebny.io"
+            hostname: "keycloak.shoplist.staging.lazebny.io"
             strict: false
             strictBackchannel: false
           additionalOptions:
             - name: LOG_LEVEL
               value: ALL
-            - name: PROXY_HEADERS
-              value: xforwarded
+            # - name: PROXY_HEADERS
+            #   value: xforwarded
