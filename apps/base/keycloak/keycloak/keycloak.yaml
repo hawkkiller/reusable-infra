@@ -8,3 +8,4 @@ spec:
   additionalOptions:
     - name: KC_LOG_LEVEL
       value: ALL
+  
