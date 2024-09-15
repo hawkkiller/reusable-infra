@@ -41,3 +41,5 @@ spec:
             tlsSecret: certificate-tls
           hostname: 
             hostname: keycloak.shoplist.staging.lazebny.io
+          ingress:
+            enabled: false

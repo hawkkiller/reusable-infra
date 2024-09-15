@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: IngressName
+  namespace: default
+spec:
+  tls:
+    - hosts:
+        - keycloak.shoplist.staging.lazebny.io
+      secretName: certificate-tls
+  rules:
+    - host: keycloak.shoplist.staging.lazebny.io
+      http:
+        paths:
+          - backend:
+              service:
+                name: keycloak-service
+                port:
+                  number: 8443
+            pathType: ImplementationSpecific
+            path: /
