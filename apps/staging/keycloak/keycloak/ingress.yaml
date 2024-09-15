@@ -19,3 +19,12 @@ spec:
                   number: 8443
             pathType: ImplementationSpecific
             path: /
+    - host: keycloak-admin.shoplist.staging.lazebny.io
+      http:
+        paths:
+          - backend:
+              service:
+                name: keycloak-service
+                port:
+                  number: 9000
+            pathType: ImplementationSpecific
