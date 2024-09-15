@@ -45,5 +45,7 @@ spec:
             admin: "https://keycloak-admin.shoplist.staging.lazebny.io"
             hostname: "https://keycloak.shoplist.staging.lazebny.io"
           additionalOptions:
-            - name: KC_LOG_LEVEL
+            - name: LOG_LEVEL
               value: ALL
+            - name: PROXY
+              value: reencrypt
