@@ -44,5 +44,5 @@ spec:
           hostname:
             admin: keycloak-admin.shoplist.staging.lazebny.io
             hostname: keycloak.shoplist.staging.lazebny.io
-            hostname-strict: false
+            strict: false
           
