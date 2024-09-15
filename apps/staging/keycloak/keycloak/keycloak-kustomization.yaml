@@ -51,3 +51,10 @@ spec:
               value: ALL
             # - name: PROXY_HEADERS
             #   value: xforwarded
+          unsupported:
+            podTemplate:
+              spec:
+                containers:
+                  - name: keycloak
+                    args:
+                      - start

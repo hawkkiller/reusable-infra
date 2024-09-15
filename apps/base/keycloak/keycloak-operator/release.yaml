@@ -5,7 +5,7 @@ metadata:
   namespace: keycloak
 spec:
   interval: 24h
-  url: https://kbumsik.io/keycloak-kubernetes/
+  url: https://hawkkiller.github.io/keycloak-operator/
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -17,6 +17,7 @@ spec:
   chart:
     spec:
       chart: keycloak-operator
+      version: 1.0.3
       sourceRef:
         kind: HelmRepository
         name: keycloak-operator
