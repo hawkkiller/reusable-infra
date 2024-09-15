@@ -42,8 +42,8 @@ spec:
           http:
             tlsSecret: certificate-tls
           hostname:
-            admin: "keycloak-admin.shoplist.staging.lazebny.io"
-            hostname: "keycloak.shoplist.staging.lazebny.io"
+            admin: "https://keycloak-admin.shoplist.staging.lazebny.io"
+            hostname: "https://keycloak.shoplist.staging.lazebny.io"
             strict: false
             strictBackchannel: false
           additionalOptions:
