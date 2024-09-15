@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: keyclock
-  namespace: default
+  namespace: keycloak
 spec:
   tls:
     - hosts:
