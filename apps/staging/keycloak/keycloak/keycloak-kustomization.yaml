@@ -50,4 +50,4 @@ spec:
             - name: LOG_LEVEL
               value: ALL
             - name: PROXY_HEADERS
-              value: forwarded
+              value: xforwarded
