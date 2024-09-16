@@ -46,6 +46,8 @@ spec:
           additionalOptions:
             - name: LOG_LEVEL
               value: ALL
+            - name: HEALTH_ENABLED
+              value: "true"
           unsupported:
             podTemplate:
               spec:
