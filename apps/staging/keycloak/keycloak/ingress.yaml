@@ -3,13 +3,16 @@ kind: Ingress
 metadata:
   name: keycloak
   namespace: keycloak
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"  # Forward HTTPS to Keycloak
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   ingressClassName: nginx
-  # tls:
-  #   - hosts:
-  #       - "keycloak.shoplist.staging.lazebny.io"
-  #       - "keycloak-admin.shoplist.staging.lazebny.io"
-  #     secretName: certificate-tls
+  tls:
+    - hosts:
+        - "keycloak.shoplist.staging.lazebny.io"
+        - "keycloak-admin.shoplist.staging.lazebny.io"
+      secretName: certificate-tls
   rules:
     - host: "keycloak.shoplist.staging.lazebny.io"
       http:
