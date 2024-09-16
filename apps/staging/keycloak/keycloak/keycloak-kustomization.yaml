@@ -46,3 +46,40 @@ spec:
           additionalOptions:
             - name: LOG_LEVEL
               value: ALL
+          unsupported:
+            podTemplate:
+              spec:
+                containers:
+                  - 
+                    livenessProbe:
+                      httpGet:
+                        path: /health/live
+                        port: 8080
+                        scheme: HTTP
+                      initialDelaySeconds: 20
+                      periodSeconds: 2
+                      successThreshold: 1
+                      timeoutSeconds: 1
+                      failureThreshold: 150
+
+                    readinessProbe:
+                      httpGet:
+                        path: /health/ready
+                        port: 8080
+                        scheme: HTTP
+                      initialDelaySeconds: 20
+                      periodSeconds: 2
+                      successThreshold: 1
+                      timeoutSeconds: 1
+                      failureThreshold: 250
+
+                    startupProbe:
+                      httpGet:
+                        path: /health/ready
+                        port: 8080
+                        scheme: HTTP
+                      initialDelaySeconds: 60
+                      periodSeconds: 2
+                      successThreshold: 1
+                      timeoutSeconds: 1
+                      failureThreshold: 250
