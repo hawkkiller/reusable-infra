@@ -38,7 +38,7 @@ spec:
             port: 5432
             host: keycloak-postgres-rw.keycloak.svc.cluster.local
           ingress:
-            enabled: true
+            enabled: false
           http:
             tlsSecret: certificate-tls
           hostname:

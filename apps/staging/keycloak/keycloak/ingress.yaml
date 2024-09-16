@@ -4,11 +4,12 @@ metadata:
   name: keycloak
   namespace: keycloak
 spec:
-  tls:
-    - hosts:
-        - "keycloak.shoplist.staging.lazebny.io"
-        - "keycloak-admin.shoplist.staging.lazebny.io"
-      secretName: certificate-tls
+  ingressClassName: nginx
+  # tls:
+  #   - hosts:
+  #       - "keycloak.shoplist.staging.lazebny.io"
+  #       - "keycloak-admin.shoplist.staging.lazebny.io"
+  #     secretName: certificate-tls
   rules:
     - host: "keycloak.shoplist.staging.lazebny.io"
       http:
@@ -18,8 +19,8 @@ spec:
                 name: keycloak-service
                 port:
                   number: 8443
-            pathType: ImplementationSpecific
             path: /
+            pathType: Prefix
     - host: "keycloak-admin.shoplist.staging.lazebny.io"
       http:
         paths:
@@ -28,4 +29,5 @@ spec:
                 name: keycloak-service
                 port:
                   number: 9000
-            pathType: ImplementationSpecific
+            path: /
+            pathType: Prefix
