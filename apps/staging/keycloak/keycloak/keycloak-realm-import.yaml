@@ -357,7 +357,7 @@ spec:
     webAuthnPolicyCreateTimeout: 0
     webAuthnPolicyAvoidSameAuthenticatorRegister: false
     webAuthnPolicyAcceptableAaguids: []
-    webAuthnPolicyExtraOrigins: []
+    # webAuthnPolicyExtraOrigins: []
     webAuthnPolicyPasswordlessRpEntityName: keycloak
     webAuthnPolicyPasswordlessSignatureAlgorithms:
     - ES256
