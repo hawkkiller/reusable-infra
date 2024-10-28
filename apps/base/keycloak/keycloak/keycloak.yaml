@@ -8,13 +8,3 @@ spec:
   additionalOptions:
     - name: KC_LOG_LEVEL
       value: ALL
-  hostname:
-    strict: false
-    strictBackchannel: false
-  unsupported:
-    podTemplate:
-      spec:
-        containers:
-          - name: keycloak
-            args:
-              - start
