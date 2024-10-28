@@ -369,7 +369,7 @@ spec:
     webAuthnPolicyPasswordlessCreateTimeout: 0
     webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister: false
     webAuthnPolicyPasswordlessAcceptableAaguids: []
-    webAuthnPolicyPasswordlessExtraOrigins: []
+    # webAuthnPolicyPasswordlessExtraOrigins: []
     users:
     - id: a4db9d49-d594-46f5-9f3f-e3df2d91139f
       username: service-account-my-backend-app
